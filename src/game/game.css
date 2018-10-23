@@ -1,0 +1,19 @@
+.game {
+    width: 1024px;
+    height: 768px;
+    margin-left: 171px;
+    background: white;
+}
+
+
+.tabuleiro {
+    float: right;
+    margin-right: 107px;
+    width: 800px;
+    height: 550px;
+    border: 5px solid grey;
+}
+
+.cartas {
+    
+}
