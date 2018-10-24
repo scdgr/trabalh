@@ -1,19 +1,24 @@
 .game {
     width: 1024px;
-    height: 768px;
+    height: 700px;
     margin-left: 171px;
-    background: white;
+    /* background: white; */
 }
 
 
 .tabuleiro {
     float: right;
-    margin-right: 107px;
-    width: 800px;
-    height: 550px;
+    margin-right: 42px;
+    margin-top: 10px;
+    width: 920px;
+    height: 510px;
     border: 5px solid grey;
 }
 
 .cartas {
-    
+    width: 1024px;
+    background: blue;
+    height: 125px;
+    display: inline-block;
+
 }
