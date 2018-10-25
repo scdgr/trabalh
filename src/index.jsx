@@ -1,28 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom'
-import App from './main/app'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Board from './board';
+import { observe } from './Game';
 
-class Square extends Component {
-    render() {
-        const { black } = this.props;
-        const fill = black ? 'black' : 'white';
-        const stroke = black ? 'white' : 'black';
+const rootEl = document.getElementById('app');
 
-        return (
-            <div style={{
-                backgroundColor: fill,
-                color: stroke,
-                width: '100%',
-                height: '100%'
-            }}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
-
-Square.propTypes = {
-    black: PropTypes.bool
-};
-//ReactDOM.render(<App />, document.getElementById('app'));
+observe(knightPosition =>
+    ReactDOM.render(
+        <Board knightPosition={knightPosition} />,
+        rootEl
+    )
+);

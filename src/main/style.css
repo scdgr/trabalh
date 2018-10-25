@@ -1,5 +1,6 @@
-body {
+html, body {
+    padding: 0px;
     margin: 0;
-    padding: 0;
-    /* background: black; */
+    height: 500px;
+    width: 500px;
 }
