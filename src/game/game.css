@@ -1,24 +1,15 @@
-.game {
-    width: 1024px;
-    height: 700px;
-    margin-left: 171px;
-    /* background: white; */
+.cards:active {
+    background-color: #009688
 }
 
-
-.tabuleiro {
-    float: right;
-    margin-right: 42px;
-    margin-top: 10px;
-    width: 920px;
-    height: 510px;
-    border: 5px solid grey;
-}
-
-.cartas {
-    width: 1024px;
-    background: blue;
-    height: 125px;
+.cards {
+    width: 75px;
+    height: 140px;
+    margin-left: 5px;
+    text-align: center;
+    font-family: 'Open Sans';
+    margin-top: 5px;
     display: inline-block;
-
+    background-color: #26a69a;
+    user-select: none;
 }

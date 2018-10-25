@@ -1,43 +1,33 @@
 import React from 'react'
 import './game.css'
+import Board from './board'
+import CardContainer from './cardContainer'
 
-class Cavalo extends React.Component {
-    render() {
-        return (
-            <span>♘</span>
-        );
-    }
-}
 
-class Gamse extends React.Component {
-    render() {
-        const { black } = this.props;
-        const fill = black ? 'black' : 'white';
-        const stroke = black ? 'white' : 'black';
-
-        return (
-            <div style={{
-                backgroundColor: fill,
-                color: stroke,
-                width: '100%',
-                height: '100%'
-            }}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
-
-Square.propTypes = {
-    black: PropTypes.bool
-};
-
+import { cards } from './cards';
 export default class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cards: cards,
+            cardsToAdd: []
+        }
+        this.deleteCard = this.deleteCard.bind(this);
+    }
+    deleteCard(id) {
+        this.setState(prevState => {
+            var index = prevState.cards.findIndex(item => item.id === id);
+            prevState.cardsToAdd.push(prevState.cards.splice(index, 1)[0]);
+            return { ...prevState }
+        })
+    }
     render() {
         return (
-            <Gamse black>
-                <Cavalo />
-            </Gamse>
+            <div>
+                <CardContainer color='#fff176' />
+                <Board cards={this.state.cardsToAdd} />
+                <CardContainer color='#aed581' cards={this.state.cards} deleteCard={this.deleteCard} />
+            </div>
         )
     }
 }

@@ -1,0 +1,18 @@
+export const cards = [
+    { id: 1,
+    nome: 'stalin'},
+    { id: 2,
+    nome: 'hitler'},
+    { id: 3,
+    nome: 'churchill'},
+    { id: 4,
+    nome: 'napoleão'},    
+    { id: 5,
+    nome: 'stalin'},
+    { id: 6,
+    nome: 'hitler'},
+    { id: 7,
+    nome: 'churchill'},
+    { id: 8,
+    nome: 'napoleão'},
+]
