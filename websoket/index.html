@@ -1,0 +1,33 @@
+<html>
+
+<body>
+    <h1>dasdasdasdjkasdjkasdjas</h1>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div id='msgs'></div>
+    <input type="text" />
+    <script>
+        console.log()
+        const socket = io();
+        socket.on('connect', function () {
+            $('#msgs').append(`connected with id: ${socket.id}<br>`);
+            socket.emit('msg', `Conectei com o id: ${socket.id}`)
+        });
+
+        socket.on('msg', function(msg) {
+            $("#msgs").append(msg+'<br>')
+        })
+        $(function() {
+            $("input").keydown(function(key) {
+                // console.log(key.keyCode)
+                if(key.keyCode === 13) {
+                    socket.emit('msg', $(this).val());
+                    $(this).val('')
+                }
+            
+            })
+        })
+    </script>
+</body>
+
+</html>
