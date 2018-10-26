@@ -3,17 +3,35 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname+'/index.html');
+    res.sendFile(__dirname + '/index.html');
 })
 
+let myObj = {
+    player1: {
+        cards: [{
+                id: 1,
+                nome: 'stalin'
+            },
+            {
+                id: 2,
+                nome: 'hitler'
+            },
+            {
+                id: 3,
+                nome: 'churchill'
+            },
+            {
+                id: 4,
+                nome: 'napoleão'
+            }
+        ]
+    }
+}
 
 
 io.on('connection', socket => {
-    console.log('new connection', socket.id);
-    socket.on('msg', (msg) => {
-        console.log(msg);
-        socket.broadcast.emit('msg', msg);
-    })
+    socket.join('jogo');
+    io.to('jogo').emit(JSON.stringify(myObj));
 })
 
 http.listen('9999', () => {
