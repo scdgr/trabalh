@@ -31,7 +31,10 @@ let myObj = {
 
 io.on('connection', socket => {
     socket.join('jogo');
-    io.to('jogo').emit(JSON.stringify(myObj));
+    io.to('jogo').emit('msg', myObj);
+    io.in('jogo').on('cartaJogada', carta => {
+        myObj.player1.cards.findIndex(item => item.id === carta.id);
+    })
 })
 
 http.listen('9999', () => {
