@@ -19,9 +19,13 @@ export default class Game extends React.Component {
             ...state,
             socket: io('http://localhost:9999')
         }));*/
-        var socket = io('http://localhost:9999');
+        var socket = io('http://200.98.64.146:9999');
         socket.on('connect', () => {
             console.log('conectei coroi');
+            this.setState(state => ({
+                ...state,
+                socket
+            }))
         })
         socket.on('msg', msg => {
             console.log(msg);
@@ -32,11 +36,9 @@ export default class Game extends React.Component {
         })
     }
     deleteCard(id) {
-        this.setState(prevState => {
-            var index = prevState.cards.findIndex(item => item.id === id);
-            prevState.cardsToAdd.push(prevState.cards.splice(index, 1)[0]);
-            return { ...prevState }
-        })
+        console.log(this.state)
+        this.state.socket.emit('delete_p1', id);
+        console.log('emiti deleta')
     }
     render() {
         return (

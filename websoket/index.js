@@ -24,7 +24,8 @@ let myObj = {
                 id: 4,
                 nome: 'napoleão'
             }
-        ]
+        ],
+        cardsOnBoard: []
     }
 }
 
@@ -32,8 +33,14 @@ let myObj = {
 io.on('connection', socket => {
     socket.join('jogo');
     io.to('jogo').emit('msg', myObj);
-    io.in('jogo').on('cartaJogada', carta => {
+    /*io.in('jogo').on('cartaJogada', carta => {
         myObj.player1.cards.findIndex(item => item.id === carta.id);
+    })*/
+    socket.in('jogo').on('delete_p1', id => {
+        var index = myObj.player1.cards.findIndex(item => item.id === id);
+        myObj.player1.cardsOnBoard.push(myObj.player1.cards.splice(index, 1)[0]);
+        io.to('jogo').emit('msg', myObj);
+        console.log('emiti');
     })
 })
 
