@@ -14,15 +14,13 @@ class Targert extends React.Component {
     }
     render() {
         const { connectDropTarget, hovered, item } = this.props;
-        { console.log(hovered) }
         return connectDropTarget(
             <div className='jogavel' style={{
                 height: '225px',
                 width: '470px',
-                backgroundColor: '#3949ab',
+                backgroundColor: this.props.player1 ? '#3949ab' : '#ef5350',
             }}>
                 {this.props.cardsToShow ? this.props.cardsToShow.map((item, id) => {
-                    console.log(item);
                     return (
                         <BoardCard item={item} key={id} />
                     )

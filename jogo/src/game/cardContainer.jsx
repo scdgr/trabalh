@@ -16,14 +16,16 @@ export default class CardContainer extends React.Component {
             <div style={{
                 height: '150px',
                 width: '470px',
-                marginTop: '5px',
                 backgroundColor: this.props.color
             }}>
-                {this.props.cards ? this.props.cards.map((item) => {
-                    return (
-                        <Card item={item} key={item.id} handleDrop={(id) => this.props.deleteCard(id)}/>
-                    )
-                }) : null}
+                {console.log(this.props.players)}
+                {this.props.player1 ?
+                    this.props.players ? this.props.players.player1.cards.map((item) => {
+                        return (
+                            <Card item={item} key={item.id} handleDrop={(id) => this.props.deleteCard(id)} />
+                        )
+                    }) : null
+                    : null}
             </div>
         )
     }

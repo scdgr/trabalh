@@ -1,6 +1,6 @@
 import React from 'react';
 import Target from './target'
-
+import OpoCards from './opoCards'
 
 
 class Board extends React.Component {
@@ -11,16 +11,19 @@ class Board extends React.Component {
         }
     }
     render() {
-        console.log(this.props)
         return (
             <div className='container'>
-                <div className='adversario' style={{
+                {/*<div className='adversario' style={{
                     height: '225px',
                     width: '470px',
-                    backgroundColor: '#ef5350',
-                    marginTop: '5px',
-                }} />
-                <Target cardsToShow={this.props.cards} />
+                    backgroundColor: this.props.player1 ? '#ef5350' : '#3949ab',
+                }} />*/}
+                <OpoCards player1={this.props.player1}
+                    cardsToShow={this.props.player1 ? this.props.players.player2.cardsOnBoard : this.props.players.player1.cardsOnBoard}
+                />
+                <Target player1={this.props.player1}
+                    cardsToShow={this.props.player1 ? this.props.players.player1.cardsOnBoard : this.props.players.player2.cardsOnBoard}
+                />
             </div>
         )
     }
