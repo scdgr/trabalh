@@ -9,21 +9,21 @@ var player = 0;
 let myObj = {
     player1: {
         cards: [{
-                id: 1,
-                nome: 'stalin'
-            },
-            {
-                id: 2,
-                nome: 'hitler'
-            },
-            {
-                id: 3,
-                nome: 'churchill'
-            },
-            {
-                id: 4,
-                nome: 'napoleão'
-            }
+            id: 1,
+            nome: 'stalin'
+        },
+        {
+            id: 2,
+            nome: 'hitler'
+        },
+        {
+            id: 3,
+            nome: 'churchill'
+        },
+        {
+            id: 4,
+            nome: 'napoleão'
+        }
         ],
         cardsOnBoard: [],
         socketId: null
@@ -35,7 +35,8 @@ let myObj = {
     }
 }
 
-var rooms = [];
+var rooms = [
+];
 
 class Player {
     /**
@@ -56,28 +57,34 @@ class Room {
     /**
      * @param {string} name 
      * @param {Player} player1 
-     * @param {Player} player2 
      */
-    constructor (name) {
+    constructor(name, player1) {
         this.name = name;
 
-        /*this.player1 = player1;
+        this.player1 = player1;
         this.player1.socket.join(this.name);
         this.player1.roomName = this.name;
-
+        /*
         this.player2 = player2;
         this.player2.socket.join(name);
         this.player2.roomName = this.name;*/
-
-        rooms.push(this);
-    }   
+    }
 }
 
 io.on('connection', socket => {
-    socket.emit('conectou');
+    socket.emit('connect', null);
 
+    socket.on('seeRooms', () => {
+        socket.emit('allRooms', rooms);
+    })
 
-    socket.on('roomCreate', )
+    socket.on('createRoom', (roomName, deck) => {
+        console.log('teve algo');
+        let player = new Player(1, deck, socket)
+        let room = new Room(roomName, player)
+        rooms.concat(room);
+        socket.emit('allRooms', rooms);
+    })
 })
 
 
