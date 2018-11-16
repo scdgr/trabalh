@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, Redirect, hashHistory } from 'react-router'
 
-import Game from '../game/game'
+import Game from '../game2/game'
 
 
 
