@@ -1,10 +1,9 @@
 import './style.css'
+import '../font/kazimir.ttf'
 import React from 'react'
 import Routes from './routes'
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-
-
 
 class App extends React.Component {
     constructor(props) {

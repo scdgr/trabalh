@@ -64,6 +64,8 @@ class Room {
         this.player1 = player1;
         this.player1.socket.join(this.name);
         this.player1.roomName = this.name;
+        
+        rooms.push(this.name);
         /*
         this.player2 = player2;
         this.player2.socket.join(name);
@@ -82,9 +84,11 @@ io.on('connection', socket => {
         console.log('teve algo');
         let player = new Player(1, deck, socket)
         let room = new Room(roomName, player)
-        rooms.concat(room);
+        // console.log(rooms);
+        console.log(socket.rooms);
         socket.emit('allRooms', rooms);
     })
+ 
 })
 
 
