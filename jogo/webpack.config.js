@@ -17,7 +17,7 @@ module.exports = {
             modules: __dirname + '/node_modules'
         }
     },
-    plugins: [ 
+    plugins: [
         new ExtractTextPlugin('app.css')
     ],
     module: {
@@ -34,6 +34,9 @@ module.exports = {
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
         }, {
             test: /\.(eot|svg|ttf|woff|woff2)$/,
+            loader: 'file-loader'
+        }, {
+            test: /\.mp3$/,
             loader: 'file-loader'
         }]
     }

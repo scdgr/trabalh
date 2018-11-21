@@ -4,3 +4,12 @@ html, body {
     height: 500px;
     width: 500px;
 }
+.aLis{
+    text-decoration: none;
+    color: #fff;
+}
+
+.aLis:hover {
+    color: #ccc;
+}
+

@@ -1,5 +1,4 @@
 import './style.css'
-import '../font/kazimir.ttf'
 import React from 'react'
 import Routes from './routes'
 import { DragDropContext } from 'react-dnd';
