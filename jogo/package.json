@@ -33,6 +33,7 @@
     "webpack-dev-server": "*"
   },
   "dependencies": {
+    "image-webpack-loader": "^4.5.0",
     "react-redux": "^5.1.1",
     "react-sound": "^1.2.0",
     "redux": "^4.0.1",

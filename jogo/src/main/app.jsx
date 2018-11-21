@@ -1,10 +1,9 @@
 import './style.css'
 import React from 'react'
 import Routes from './routes'
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 
-class App extends React.Component {
+
+export default class App extends React.PureComponent {
     constructor(props) {
         super();
     }
@@ -14,5 +13,3 @@ class App extends React.Component {
         </div>)
     }
 }
-
-export default DragDropContext(HTML5Backend)(App);

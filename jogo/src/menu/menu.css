@@ -22,20 +22,29 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 
+.menu {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/capa.jpg');
+    background-size: cover;
+    background-color: black;
+}
 .menuList {
     list-style: none;
     margin: 0px;
     padding: 0px;
     width: 50vw;
     margin-left: 25vw;
-    background-color: rgb(33, 33, 33);
-    height: 100vh;
+    /* background-color: rgb(33, 33, 33); */
+    height: 75vh;
+
+    padding-top: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .lis {
-    display: table;
+    /* display: table; */
     /* background-color: #ccc; */
     /* border-bottom: 1px solid gray; */
     /* width: 12%; */
@@ -51,6 +60,6 @@
 
 .lis:hover {
     user-select: none;
-    color: #ccc;
+    color: rgb(184, 143, 143);
     /* background-color: #dcdcdc; */
 }

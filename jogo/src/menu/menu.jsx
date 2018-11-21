@@ -1,6 +1,10 @@
 import React from 'react';
 import soundFile from '../sountrack/Click.mp3';
 import './menu.css';
+import { Link } from 'react-router'
+import Sound from 'react-sound';
+
+import menuTheme from '../sountrack/01. Elder.mp3';
 
 
 export default class Menu extends React.Component {
@@ -14,14 +18,13 @@ export default class Menu extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className='menu'>
                 <ul className='menuList'>
-                    <li className='lis'><a onClick={this.onClick} className='aLis' href='#/game'>Jogar</a></li>
-                    <li className='lis'><a onClick={this.onClick} className='aLis' href='#/about'>Créditos</a></li>
+                    <li className='lis'><Link onClick={this.onClick} className='aLis' to='/game'>Jogar</Link></li>
+                    <li className='lis'><Link onClick={this.onClick} className='aLis' to='/about'>Créditos</Link></li>
                     <li className='lis'><a onClick={this.onClick} className='aLis' href='#'>Sair</a></li>
-                    {/* {this.state.audioHidden ? null : <audio ref={this.myref} src={soundFile}  />} */}
-
                 </ul>
+                <audio ref={this.myref} src={menuTheme} autoPlay loop volume={0.1} />
             </div>
         )
     }
