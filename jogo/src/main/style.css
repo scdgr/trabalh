@@ -13,3 +13,7 @@ html, body {
     color:  rgb(184, 143, 143);
 }
 
+.container {
+    width: 100vw;
+    height: 100vh;
+}
